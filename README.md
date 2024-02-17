@@ -9,6 +9,7 @@ This repository contains implementation of [AST](https://github.com/YuanGongND/a
   |AST |  IN | -  | 93.3 |
   |SSAST |  AS 2M | 53.4 | 85.7 |
   |UniRepLKNet | - | - | 38.3 🛠️ |
+  |UniRepLKNet | IN | - | 78.1 🛠️ |
   
 
 ### LoRA 

@@ -1,0 +1,62 @@
+TRAIN:
+  ENABLE: True
+  DATASET: ESC50
+  BATCH_SIZE: 32
+  EVAL_PERIOD: 5
+  CHECKPOINT_PERIOD: 100
+  CHECKPOINT_TYPE: pytorch
+  CHECKPOINT_EPOCH_RESET: True
+  AUTO_RESUME: False
+ESC:
+  FREQM: 24 # 0
+  TIMEM: 96 # 0
+  MIXUP: 0
+  NUM_MELBINS: 128
+  AUDIO_LENGTH: 512
+  MEAN: -6.6268077
+  STD: 5.358466
+  SKIP_NORM: False
+  NOISE: False
+  MODE: train # evaluation
+  LABEL_CSV: /home/s2/juanyeo/laalaudio/data/esc50/esc_class_labels_indices.csv
+AUDIO_DATA:
+  CLIP_SECS: 1.999
+  NUM_FRAMES: 512
+  INPUT_CHANNEL_NUM: [1]
+SOLVER:
+  BASE_LR: 1e-4
+  LR_POLICY: steps_with_relative_lrs
+  STEPS: [0, 10, 20]
+  LRS: [1, 0.05, 0.01]
+  MAX_EPOCH: 100
+  WEIGHT_DECAY: 1e-4
+  WARMUP_EPOCHS: 2.0
+  WARMUP_START_LR: 1e-6
+  OPTIMIZING_METHOD: adamw
+TEST:
+  ENABLE: False
+  DATASET: ESC50
+  BATCH_SIZE: 16
+  NUM_ENSEMBLE_VIEWS: 5
+DATA_LOADER:
+  NUM_WORKERS: 8
+  PIN_MEMORY: True
+MODEL:
+  ARCH: unireplk
+  MODEL_NAME: UniRepLKNetModel
+  NUM_CLASSES: [50] # audioset 527 epicsound 44
+  LOSS_FUNC: cross_entropy
+WANDB:
+  ENABLE: False
+NUM_GPUS: 8
+NUM_SHARDS: 1
+RNG_SEED: 0
+OUTPUT_DIR: .
+
+# --------------Result Summary--------------
+# Fold 1 accuracy: 0.9027
+# Fold 2 accuracy: 0.9265
+# Fold 3 accuracy: 0.9232
+# Fold 4 accuracy: 0.9368
+# Fold 5 accuracy: 0.9110
+# The averaged accuracy of 5 folds is 0.920

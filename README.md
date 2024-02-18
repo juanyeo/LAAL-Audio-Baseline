@@ -6,15 +6,15 @@ This repository contains implementation of [AST](https://github.com/YuanGongND/a
 ### Architectures
 |   Model   | Pretrained | Epic-Sounds |   ESC50    |
   | --------- |:---:|:--------:|:--------:|
-  |AST |  IN | -  | 93.3 |
+  |AST |  IN | 52.2  | 93.3 |
   |SSAST |  AS 2M | 53.4 | 85.7 |
-  |UniRepLKNet | - | - | 38.3 🛠️ |
+  |UniRepLKNet | - | 52.3 | 38.3 |
   |UniRepLKNet | IN | - | 78.1 🛠️ |
   
 
 ### LoRA 
-  |   Model   | Pretrained | Fine-Tuning | ESC50    |
-  | --------- |:---:|:--------:|:--------:|
+  |   Model   | Pretrained | Fine-Tuning | ESC50 |
+  | --------- |:---:|:------:|:------:|
   |AST |  IN |  Full | 93.3 | 
   |AST | IN | LoRA | 78.5 (85.1) |
  

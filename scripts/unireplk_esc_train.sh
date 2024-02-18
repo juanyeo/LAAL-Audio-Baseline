@@ -1,7 +1,7 @@
 current_time=$(date "+%Y%m%d_%H:%M:%S")
 project_dir=/home/s2/juanyeo/laalaudio
 
-for((fold=3;fold<=3;fold++));
+for((fold=1;fold<=5;fold++));
 do
     echo 'now process fold'${fold}
 

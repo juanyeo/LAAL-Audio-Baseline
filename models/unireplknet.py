@@ -66,8 +66,8 @@ class UniRepLKNetModel(nn.Module):
 
         model = UniRepLKNet(depths=[3, 3, 27, 3], dims=[96, 192, 384, 768], drop_path_rate=0.4,
                               in_chans=1, disable_iGEMM=True, num_classes=label_dim)
-        
-        # model = initialize_with_pretrained(model, 'unireplknet_b', False, True, False)
+        initialize_with_pretrained(model, 'unireplknet_s', False, True, False)
+
         self.v = model
         # self.v =  UniRepLKNet(depths=[3, 3, 27, 3], dims=[96, 192, 384, 768], drop_path_rate=0.4,
         #                       in_chans=1, disable_iGEMM=True, num_classes=label_dim)

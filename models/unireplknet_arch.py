@@ -623,10 +623,18 @@ def load_with_key(model, key):
         checkpoint = torch.hub.load_state_dict_from_url(url=model_urls[key], map_location="cpu", check_hash=True)
     if 'model' in checkpoint:
         checkpoint = checkpoint['model']
-    ## delete head
-    # checkpoint.pop('head.weight', None)
-    # checkpoint.pop('head.bias', None)
-    model.load_state_dict(checkpoint)
+    # delete head
+    # print("&&&&&&&&&")
+    # print(checkpoint.keys())
+    # # checkpoint.pop('downsample_layers.0.0.weight', None)
+    # # checkpoint.pop('downsample_layers.0.0.bias', None)
+    # # checkpoint.pop('downsample_layers.0.0.weight', None)
+    # # checkpoint.pop('downsample_layers.0.0.bias', None)
+    del checkpoint['downsample_layers.0.0.weight']
+    del checkpoint['downsample_layers.0.0.bias']
+    del checkpoint['head.weight']
+    del checkpoint['head.bias']
+    model.load_state_dict(checkpoint, strict=False)
 
 def initialize_with_pretrained(model, model_name, in_1k_pretrained, in_22k_pretrained, in_22k_to_1k):
     if in_1k_pretrained:
